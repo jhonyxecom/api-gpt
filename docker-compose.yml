@@ -1,14 +1,15 @@
+version: '3'
 services:
-  api:
+  fastify-api:
     image: node:18-alpine
     container_name: fastify-api
-    working_dir: /
+    working_dir: /usr/src/app
     volumes:
-      - ./app:/app # Corrige o caminho para montar na pasta /app dentro do container
+      - .:/usr/src/app
     ports:
-      - "32778:3001"
+      - "3001:3001" # Expondo a porta da API
     environment:
-      - API_KEY=${API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      API_KEY: "your_api_key" # Sua chave API
+      OPENAI_API_KEY: "your_openai_api_key"
     command: sh -c "npm install && npm run start"
     restart: unless-stopped
