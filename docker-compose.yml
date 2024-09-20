@@ -6,7 +6,7 @@ services:
     volumes:
       - ./app:/app # Corrige o caminho para montar na pasta /app dentro do container
     ports:
-      - "3001:3001"
+      - "32778:3001"
     environment:
       - API_KEY=${API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
