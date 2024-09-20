@@ -1,12 +1,10 @@
-version: '3.8'
-
 services:
   api:
     image: node:18-alpine
     container_name: fastify-api
-    working_dir: /
+    working_dir: /app
     volumes:
-      - ./:/
+      - ./app:/app # Corrige o caminho para montar na pasta /app dentro do container
     ports:
       - "3001:3001"
     environment:
