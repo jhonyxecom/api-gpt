@@ -1,9 +1,9 @@
 services:
   app:
     image: node:latest
-    working_dir: /app/
+    working_dir: /api-gpt
     volumes:
-      - app
+      - api-gpt
     ports:
       - "3001:3001"
     command: >
