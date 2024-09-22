@@ -4,14 +4,13 @@ FROM node:latest
 # Defina o diretório de trabalho no container
 WORKDIR /app
 
-# Copie o arquivo package.json e package-lock.json para o container
-COPY package*.json ./
-
-# Instale as dependências de produção
-RUN npm i
 
 # Copie o restante do código da aplicação
 COPY . .
+
+
+# Instale as dependências de produção
+RUN npm i
 
 RUN rm -rf node_modules
 
