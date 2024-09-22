@@ -1,5 +1,5 @@
 # Use a imagem base do Node.js
-FROM node:18-alpine
+FROM node:latest
 # Defina o diretório de trabalho dentro do container
 WORKDIR /
 
@@ -10,7 +10,7 @@ RUN npm install
 COPY . .
 
 # Exponha a porta do servidor
-EXPOSE 3003
+EXPOSE 3001
 
 # Inicie o servidor
 CMD ["npm", "start"]
