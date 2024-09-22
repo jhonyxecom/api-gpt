@@ -5,9 +5,9 @@ services:
     image: node:latest
     container_name: festfy-app
     working_dir: /app
-    volumes:
-      - .:/app                   # Monta o diretório atual no container
-      - festfy_data:/app/data    # Volume persistente para dados (ajuste conforme necessário)
+  volumes:
+      - festfy:/letsencrypt
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
       - "3000:3000"
     command: ["npm", "start"]
