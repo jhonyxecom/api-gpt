@@ -2,13 +2,14 @@ version: '3'
 
 services:
   fastify-app:
-    build: .
-    container_name: fastify-app
+    image: fastify-app:latest  # Nome da imagem após build
+    build:
+      context: .  # Diretório de build do Docker
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
     ports:
       - '3001:3001'
     environment:
-      API_KEY: ${API_KEY}
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      - API_KEY=${API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
