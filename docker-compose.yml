@@ -8,11 +8,10 @@ services:
     volumes:
       - festfy_data:/app/data                # Monta o volume persistente no diretório /app/data
     ports:
-      - "3000:3000"
+      - "3001:3001"
     command: ["npm", "start"]
     environment:
       - NODE_ENV=production
 
 volumes:
   festfy_data:
-    driver: local
