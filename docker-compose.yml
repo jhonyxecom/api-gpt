@@ -1,17 +1,15 @@
+version: '3.8'
+
 services:
   app:
     image: node:latest
     volumes:
-      - .:/app
+      - .:/app  # Monta o diretório atual no contêiner
     ports:
-      - "3001:3001"
+      - "3001:3001"  # Mapeia a porta 3001 do contêiner para a porta 3001 do host
     command: >
       sh -c "npm install &&
              npm run build &&
-             npm start"
+             npm start"  # Comando para instalar dependências, construir e iniciar o app
     environment:
-      NODE_ENV: production
-   
-volumes:
-  api_gpt:
-
+      NODE_ENV: production  # Define o ambiente como produção
