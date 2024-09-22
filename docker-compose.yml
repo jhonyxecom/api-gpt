@@ -7,9 +7,14 @@ services:
       context: .  # Diretório onde o Dockerfile está
     working_dir: /app
     volumes:
-      - .:/app
+      - fastify_certificates:/app/certificates  # Volume para certificados ou dados persistentes
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Acesso ao Docker socket (se necessário)
     ports:
       - '3001:3001'
     environment:
       API_KEY: ${API_KEY}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
+
+volumes:
+  fastify_certificates:
+    external: true  # Volume externo para dados persistentes (como certificados)
