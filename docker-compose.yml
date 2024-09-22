@@ -4,7 +4,7 @@ services:
   app:
     image: node:latest
     volumes:
-      - .:/app  # Monta o diretório atual no contêiner
+      - api_gpt:/app  # Monta o diretório atual no contêiner
     ports:
       - "3001:3001"  # Mapeia a porta 3001 do contêiner para a porta 3001 do host
     command: >
