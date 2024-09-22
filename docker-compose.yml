@@ -6,7 +6,8 @@ services:
     container_name: festfy-app
     working_dir: /app
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Mantido o socket Docker se necessário
+      - festfy_data:/app/data                # Monta o volume persistente no diretório /app/data
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
       - "3000:3000"
     command: ["npm", "start"]
@@ -14,4 +15,5 @@ services:
       - NODE_ENV=production
 
 volumes:
-  # Você pode remover a seção volumes se não houver necessidade de volumes adicionais
+  festfy_data:
+    driver: local
