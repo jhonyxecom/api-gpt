@@ -7,7 +7,6 @@ services:
     working_dir: /app
     volumes:
       - festfy_data:/app/data                # Monta o volume persistente no diretório /app/data
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
       - "3000:3000"
     command: ["npm", "start"]
