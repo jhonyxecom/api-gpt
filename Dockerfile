@@ -1,20 +1,20 @@
-# Dockerfile
-FROM node:latest
+# Use a imagem base do Node.js
+FROM node:18-alpine
 
-# Set working directory
+# Defina o diretório de trabalho dentro do container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
+# Copie os arquivos de package.json e package-lock.json
 COPY package*.json ./
 
-# Install dependencies
+# Instale as dependências
 RUN npm install
 
-# Copy all files to the container
+# Copie o restante dos arquivos da aplicação
 COPY . .
 
-# Expose the API port
+# Exponha a porta do servidor
 EXPOSE 3001
 
-# Start the application
+# Inicie o servidor
 CMD ["npm", "start"]
