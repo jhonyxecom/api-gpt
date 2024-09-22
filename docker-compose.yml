@@ -11,8 +11,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Acesso ao Docker socket (se necessário)
     ports:
       - '3001:3001'
-    environment:
-     
+  
 
 volumes:
   fastify_certificates:
