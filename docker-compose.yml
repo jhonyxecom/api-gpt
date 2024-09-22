@@ -2,7 +2,7 @@ services:
   app:
     image: node:latest
     volumes:
-      - api_gpt:/app/
+      - bk_api_gpt:/app/
     ports:
       - "3001:3001"
     command: >
@@ -13,5 +13,5 @@ services:
       NODE_ENV: production
    
 volumes:
-  api_gpt:
+  bg_api_gpt:
 
