@@ -13,6 +13,12 @@ services:
       sh -c "npm install && npm run build && npm start"
     environment:
       NODE_ENV: production
+    networks:
+      - my_bridge_network
 
 volumes:
   festfy_data:
+
+networks:
+  my_bridge_network:
+    driver: bridge
