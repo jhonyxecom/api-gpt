@@ -1,7 +1,6 @@
 services:
   app:
     image: node:latest
-    working_dir: /app/
     volumes:
       - api_gpt:/app/
     ports:
@@ -14,5 +13,5 @@ services:
       NODE_ENV: production
    
 volumes:
-  festfy_data:
+  api_gpt:
 
