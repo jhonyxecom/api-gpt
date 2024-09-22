@@ -5,9 +5,8 @@ services:
     image: node:latest
     container_name: festfy-app
     working_dir: /app
-  volumes:
-      - festfy:/letsencrypt
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Mantido o socket Docker se necessário
     ports:
       - "3000:3000"
     command: ["npm", "start"]
@@ -15,5 +14,4 @@ services:
       - NODE_ENV=production
 
 volumes:
-  festfy_data:
-    driver: local
+  # Você pode remover a seção volumes se não houver necessidade de volumes adicionais
