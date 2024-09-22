@@ -3,9 +3,9 @@ version: '3.8'
 services:
   app:
     image: node:latest
-    working_dir: /app
+    working_dir: /app/
     volumes:
-      - .:/app  # Ajuste conforme necessário
+      - festfy_data:/app/
     ports:
       - "3001:3001"
     command: >
