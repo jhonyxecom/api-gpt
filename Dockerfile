@@ -2,7 +2,7 @@
 FROM node:18-alpine
 
 # Defina o diretório de trabalho dentro do container
-WORKDIR /usr/src/app
+WORKDIR /
 
 # Copie os arquivos de package.json e package-lock.json
 COPY package*.json ./
