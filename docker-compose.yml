@@ -2,7 +2,6 @@ version: '3'
 
 services:
   fastify-app:
-    image: fastnode
     build:
       context: .  # Diretório onde o Dockerfile está
     working_dir: /app
@@ -11,7 +10,6 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Acesso ao Docker socket (se necessário)
     ports:
       - '3003:3003'
-  
 
 volumes:
   fastify_certificates:
