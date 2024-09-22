@@ -10,7 +10,7 @@ services:
       - fastify_certificates:/app/certificates  # Volume para certificados ou dados persistentes
       - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Acesso ao Docker socket (se necessário)
     ports:
-      - '3001:3001'
+      - '3003:3003'
   
 
 volumes:
