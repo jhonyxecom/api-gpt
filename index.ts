@@ -3,7 +3,7 @@ import fastifyCors from '@fastify/cors';
 
 const fastify = Fastify();
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = 21323123;
 
 fastify.addHook('onRequest', async (request, reply) => {
     if (request.headers['x-api-key'] !== API_KEY) {
@@ -95,7 +95,7 @@ fastify.post('/api/chat', async (request, reply) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, // Certifique-se de que a chave API está configurada
+                'Authorization': `Bearer novo`, // Certifique-se de que a chave API está configurada
             },
             body: JSON.stringify(payload),
         });
