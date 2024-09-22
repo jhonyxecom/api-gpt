@@ -12,12 +12,7 @@ services:
              npm start"
     environment:
       NODE_ENV: production
-    networks:
-      - my_overlay_network
-
+   
 volumes:
   festfy_data:
 
-networks:
-  my_overlay_network:
-    driver: overlay
