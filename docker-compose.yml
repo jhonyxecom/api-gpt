@@ -2,7 +2,7 @@ version: '3'
 
 services:
   fastify-app:
-    image: fastify-IA
+    image: fastnode
     build:
       context: .  # Diretório onde o Dockerfile está
     working_dir: /app
