@@ -3,7 +3,6 @@ version: '3.8'
 services:
   app:
     image: node:latest
-    container_name: festfy-app
     working_dir: /app
     volumes:
       - festfy_data:/app/data
@@ -14,11 +13,11 @@ services:
     environment:
       NODE_ENV: production
     networks:
-      - my_bridge_network
+      - my_overlay_network
 
 volumes:
   festfy_data:
 
 networks:
-  my_bridge_network:
-    driver: bridge
+  my_overlay_network:
+    driver: overlay
