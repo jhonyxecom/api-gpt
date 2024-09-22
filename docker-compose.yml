@@ -6,11 +6,6 @@ services:
       context: .  # Diretório onde o Dockerfile está
     working_dir: /app
     volumes:
-      - fastify_certificates:/app/certificates  # Volume para certificados ou dados persistentes
       - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Acesso ao Docker socket (se necessário)
     ports:
       - '3003:3003'
-
-volumes:
-  fastify_certificates:
-    external: true  # Volume externo para dados persistentes (como certificados)
