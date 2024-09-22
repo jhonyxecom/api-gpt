@@ -1,25 +1,20 @@
-# Use a imagem base do Node.js
+# Dockerfile
 FROM node:latest
 
-# Defina o diretório de trabalho no container
-WORKDIR /app
+# Set working directory
+WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-# Copie o restante do código da aplicação
+# Install dependencies
+RUN npm install
+
+# Copy all files to the container
 COPY . .
 
-
-# Instale as dependências de produção
-RUN npm i
-
-RUN rm -rf node_modules
-
-# Comando para rodar a aplicação
-CMD ["node",  "start"]
-
-# Exponha a porta
+# Expose the API port
 EXPOSE 3001
 
-# Defina as variáveis de ambiente necessárias
-ENV PORT=3001
-
+# Start the application
+CMD ["npm", "start"]
