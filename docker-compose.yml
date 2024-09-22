@@ -2,7 +2,7 @@ services:
   app:
     image: node:latest
     volumes:
-      - api_gpt:/app/
+      - .:/app
     ports:
       - "3001:3001"
     command: >
