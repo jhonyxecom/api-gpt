@@ -12,8 +12,7 @@ services:
     ports:
       - '3001:3001'
     environment:
-      API_KEY: ${API_KEY}
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
+     
 
 volumes:
   fastify_certificates:
