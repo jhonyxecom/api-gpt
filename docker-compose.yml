@@ -4,7 +4,7 @@ services:
   app:
     image: node:latest
     volumes:
-      - api_gpt:/app  # Monta o diretório atual no contêiner
+      - api_gpt:/app  # Usa o volume existente api_gpt
     ports:
       - "3001:3001"  # Mapeia a porta 3001 do contêiner para a porta 3001 do host
     command: >
@@ -13,3 +13,6 @@ services:
              npm start"  # Comando para instalar dependências, construir e iniciar o app
     environment:
       NODE_ENV: production  # Define o ambiente como produção
+
+volumes:
+  api_gpt:  # Declara o volume existente
