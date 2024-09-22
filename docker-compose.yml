@@ -1,17 +1,14 @@
-version: '3.8'  # Certifique-se de que a versão seja adequada
+version: '3.8'
 
 services:
-  fastify-app:
-    build: 
-      context: .  # Diretório onde o Dockerfile está
-      dockerfile: Dockerfile  # Especifique o nome do Dockerfile, se não for 'Dockerfile'
+  app:
+    image: node:latest
+    container_name: festfy-app
     working_dir: /app
     volumes:
-      - fastify_certificates:/app/certificates  # Volume para certificados ou dados persistentes
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"  # Acesso ao Docker socket (se necessário)
+      - .:/app
     ports:
-      - '3003:3003'
-
-volumes:
-  fastify_certificates:
-    external: true  # Volume externo para dados persistentes (como certificados)
+      - "3000:3000"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
