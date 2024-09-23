@@ -1,16 +1,12 @@
 {
-  "name": "ai-bkfunnels",
+  "name": "fastify-ts-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "tsx index.ts",
+    "dev": "ts-node src/server.ts",
     "build": "tsc",
-    "start": "node index.js"
+    "start": "node dist/server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@fastify/cors": "^10.0.0",
     "axios": "^1.7.7",
@@ -18,7 +14,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.5.5",
+    "ts-node": "^10.9.2",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2"
+    
   }
 }
