@@ -11,18 +11,4 @@ services:
     volumes:
       - .:/usr/src/app  # Sincroniza o diretório atual com o diretório de trabalho no container
     command: ["npx", "ts-node", "index.ts"]  # Comando para rodar o servidor
-    networks:
-      - fastify-net  # Define a rede
 
-  # Serviço de Node.js, se necessário
-  node:
-    image: "node:latest"  # Corrigido o nome da imagem
-    ports:
-      - "6379:6379"  # (Verifique se realmente precisa dessa porta para o Node.js)
-    networks:
-      - fastify-net  # Mesma rede para comunicação
-
-# Definir redes customizadas
-networks:
-  fastify-net:
-    driver: bridge  # Rede do tipo bridge
