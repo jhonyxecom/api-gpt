@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   fastify-app:
-    build: .
+    build:
+      context: .  # O contexto do build, onde está o Dockerfile
     ports:
       - "3001:3001"  # Mapeia a porta 3001 do container para a porta 3001 do host
     environment:
@@ -10,11 +11,18 @@ services:
     volumes:
       - .:/usr/src/app  # Sincroniza o diretório atual com o diretório de trabalho no container
     command: ["npx", "ts-node", "index.ts"]  # Comando para rodar o servidor
-    depends_on:
-      - redis  # Exemplo de serviço dependente (caso precise adicionar)
-      
-  # Caso você precise de um banco de dados ou serviço extra, adicione aqui
-  redis:
-    image: "redis:alpine"
+    networks:
+      - fastify-net  # Define a rede
+
+  # Serviço de Node.js, se necessário
+  node:
+    image: "node:latest"  # Corrigido o nome da imagem
     ports:
-      - "6379:6379"
+      - "6379:6379"  # (Verifique se realmente precisa dessa porta para o Node.js)
+    networks:
+      - fastify-net  # Mesma rede para comunicação
+
+# Definir redes customizadas
+networks:
+  fastify-net:
+    driver: bridge  # Rede do tipo bridge
