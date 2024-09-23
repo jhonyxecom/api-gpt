@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  fastify-app:
+    build: .
+    ports:
+      - "3001:3001"  # Mapeia a porta 3001 do container para a porta 3001 do host
+    environment:
+      - PORT=3001  # Define a variável de ambiente PORT
+    volumes:
+      - .:/usr/src/app  # Sincroniza o diretório atual com o diretório de trabalho no container
+    command: ["npx", "ts-node", "index.ts"]  # Comando para rodar o servidor
+    depends_on:
+      - redis  # Exemplo de serviço dependente (caso precise adicionar)
+      
+  # Caso você precise de um banco de dados ou serviço extra, adicione aqui
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
